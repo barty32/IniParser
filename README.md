@@ -1,9 +1,9 @@
 # IniParser++
+A simple C++ initialization file parser library.
 
 # Features
 - Minimalistic header-only C++ implementation
 - Cross-platform
-- Easy usage
 - UTF-8 support
 - Preserves comments
 - Compatible with Windows API functions (ReadPrivateProfile*, WritePrivateProfile*)
@@ -14,25 +14,25 @@ This section is unfinished, functions are documented directly in the code.
 
 Public:
 ```
-  ChangePath
-  Init
-  Reload
-  Flush
-  ReadString
-  ReadInt
-  ReadBinary
-  WriteString
-  WriteInt
-  WriteBinary
-  DeleteKey
-  DeleteSection
-  SetComment
-  GetKeyCount
-  GetSectionCount
+  ChangePath(newPath)
+  Init()
+  Reload()
+  Flush()
+  ReadString     (sectionName, keyName, Default)
+  ReadInt        (sectionName, keyName, Default)
+  ReadBinary     (sectionName, keyName, binaryDataBuffer, binaryDataSize, verifyChecksum = true)
+  WriteString    (sectionName, keyName, value)
+  WriteInt       (sectionName, keyName, value)
+  WriteBinary    (sectionName, keyName, binaryData, dataSize)
+  DeleteKey      (sectionName, keyName)
+  DeleteSection  (sectionName)
+  SetComment     (sectionName, keyName, value)
+  GetKeyCount    (sectionName)
+  GetSectionCount()
   ```
 Protected:
 ```
-  trim
-  _parseIni
-  _writeIni
+  trim(str, trimQuot = false)
+  _parseIni(clear = false)
+  _writeIni()
   ```

@@ -32,27 +32,28 @@
 // SOFTWARE.
 // 
 // Function reference:
-//    Public:
-//      ChangePath
-//      Init
-//      Reload
-//      Flush
+// Public:
+//     ChangePath(newPath)
+//     Init()
+//     Reload()
+//     Flush()
+//     ReadString     (sectionName, keyName, Default)
+//     ReadInt        (sectionName, keyName, Default)
+//     ReadBinary     (sectionName, keyName, binaryDataBuffer, binaryDataSize, verifyChecksum = true)
+//     WriteString    (sectionName, keyName, value)
+//     WriteInt       (sectionName, keyName, value)
+//     WriteBinary    (sectionName, keyName, binaryData, dataSize)
+//     DeleteKey      (sectionName, keyName)
+//     DeleteSection  (sectionName)
+//     SetComment     (sectionName, keyName, value)
+//     GetKeyCount    (sectionName)
+//     GetSectionCount()
+//  
+// Protected:
+//     trim(str, trimQuot = false)
+//     _parseIni(clear = false)
+//     _writeIni()
 //
-//      ReadString
-//      ReadInt
-//      ReadBinary
-//      WriteString
-//      WriteInt
-//      WriteBinary
-//      DeleteKey
-//      DeleteSection
-//      SetComment
-//      GetKeyCount
-//      GetSectionCount
-//    Protected:
-//      trim
-//      _parseIni
-//      _writeIni
 // 
 // 
 
