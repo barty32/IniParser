@@ -173,7 +173,7 @@ class IniParser{
 					comment += origLine + L"\n";
 					continue;
 				}
-				if(line[0] == L';' || line[0] == L'#'){
+				if(line[0] == L';' || line[0] == L'#' || line[0] == L'\''){
 					// Comment, do nothing
 					comment += origLine + L"\n";
 					continue;
