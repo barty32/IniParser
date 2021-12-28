@@ -1,20 +1,70 @@
+// _____      _______                                    
+//|_   _|    (_) ___ \                         _     _   
+//  | | _ __  _| |_/ /_ _ _ __ ___  ___ _ __ _| |_ _| |_ 
+//  | || '_ \| |  __/ _` | '__/ __|/ _ \ '__|_   _|_   _|
+// _| || | | | | | | (_| | |  \__ \  __/ |    |_|   |_|  
+// \___/_| |_|_\_|  \__,_|_|  |___/\___|_|               
 //
-// _____      _  ______                        
-//|_   _|    (_) | ___ \                       
-//  | | _ __  _  | |_/ /_ _ _ __ ___  ___ _ __ 
-//  | || '_ \| | |  __/ _` | '__/ __|/ _ \ '__|
-// _| || | | | | | | | (_| | |  \__ \  __/ |   
-// \___/_| |_|_| \_|  \__,_|_|  |___/\___|_|   
-//                                             
+// Simple and minimalistic C++ initialization file parser library
+// Version 2.0
 //
+//
+// MIT License
+//
+// Copyright (c) 2021-2022 barty12
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
+// 
+// Function reference:
+//    Public:
+//      ChangePath
+//      Init
+//      Reload
+//      Flush
+//
+//      ReadString
+//      ReadInt
+//      ReadBinary
+//      WriteString
+//      WriteInt
+//      WriteBinary
+//      DeleteKey
+//      DeleteSection
+//      SetComment
+//      GetKeyCount
+//      GetSectionCount
+//    Protected:
+//      trim
+//      _parseIni
+//      _writeIni
+// 
+// 
 
 #ifndef _INC_INIPARSER
 #define _INC_INIPARSER
 
+#ifdef __cplusplus
+
 //Includes
 #include <string>
 //#include <codecvt>
-#include "utf8_facet.h"
+#include "utf8_facet.h" //Custom modified version of <codecvt> (does not stop reading and writing on errors)
 #include <unordered_map>
 #include <list>
 #include <exception>
@@ -318,7 +368,7 @@ class IniParser{
 	//
 	// @brief Inserts a comment (one or multiple lines starting with ';' or '#') before specified key or the specified section of an initialization file
 	// @param sectionName - The name of the section
-	// @param keyName - The name of the key. If key is an empty string, comment will be add
+	// @param keyName - The name of the key. If key is an empty string, comment will be added
 	// @param value - A comment to be inserted before the key. Comment can be multiple lines. Every line must start with ';' or '#'.
 	// @return Returns true on success, false on failure
 	// 
@@ -453,4 +503,7 @@ class IniParser{
 	}
 };
 
+#undef CharToNibble
+
+#endif //__cplusplus
 #endif //_INC_INIPARSER
